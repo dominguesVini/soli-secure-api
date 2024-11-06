@@ -61,9 +61,9 @@ PORT=3000
 
 ### Diagrama de Entidade-Relacionamento (ERD)
 
-![ERD](./docs/erd.png)
+![DIAGRAMA](./docs/erd.png)
 
-Ou acesse o link: [ERD do Projeto](https://banco-de-dados.com)
+Ou acesse o link: [DIAGRAMA do Projeto](https://banco-de-dados.com)
 
 ### Documentação Swagger
 
