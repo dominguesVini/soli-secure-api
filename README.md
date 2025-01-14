@@ -86,7 +86,7 @@ A documentação dos endpoints gerada pelo Swagger pode ser acessada em: [https:
 - [X] **ID4**: Manipulação de rotas HTTP e tratamento de requisições.
 - [X] **ID5**: Tratamento de erros com filtros globais e mensagens personalizadas.
 - [X] **ID6**: Criação de classes DTO para validação dos dados.
-- [ ] **ID7**: Aplicou pipes de validação no NestJS para garantir integridade dos dados.
+- [X] **ID7**: Aplicou pipes de validação no NestJS para garantir integridade dos dados.
 
 ### RA2 - Implementar persistência de dados com um banco de dados relacional utilizando Prisma ou TypeORM
 

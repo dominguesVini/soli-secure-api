@@ -1,13 +1,21 @@
+// src/app.module.ts
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { UsersModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './users/users.module';
 
 @Module({
-  imports: [SharedModule, CoreModule, UsersModule],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        TypeOrmModule.forRoot({
+            type: 'postgres', // ou 'mysql', 'sqlite', etc.
+            host: 'localhost',
+            port: 5432, // ou a porta do seu banco de dados
+            username: 'seu_usuario',
+            password: 'sua_senha',
+            database: 'seu_banco',
+            entities: [__dirname + '/**/*.entity{.ts,.js}'], // Para encontrar todas as entidades
+            synchronize: true, // Somente para desenvolvimento
+        }),
+        UserModule,
+    ],
 })
 export class AppModule {}

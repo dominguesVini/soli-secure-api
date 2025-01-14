@@ -1,46 +1,20 @@
-import { Controller, Get, Post, Put, Patch, Delete, Param, Body, HttpCode } from '@nestjs/common';
-import { UsersService } from './users.service';
+// src/users/user.controller.ts
+import { Controller, Post, Body, Patch, Param } from '@nestjs/common';
+import { UserService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
-export class UsersController
-{
-constructor(private readonly featureService: UsersService) {} // Injeção do serviço
+export class UserController {
+    constructor(private readonly userService: UserService) {}
 
-  // Método POST para criar um novo usuario
-  @Post()
-  @HttpCode(201)
-  create(@Body() createUser: any) { // Parâmetro recebido diretamente sem DTO
-    return this.featureService.create(createUser);
-  }
+    @Post()
+    create(@Body() createUserDto: CreateUserDto) {
+        return this.userService.createUser(createUserDto);
+    }
 
-  // Método GET para listar todos os usuarios
-  @Get()
-  findAll() {
-    return this.featureService.findAll();
-  }
-
-  // Método GET para buscar um usuario específico pelo ID
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.featureService.findOne(id);
-  }
-
-  // Método PUT para substituir um usuarrio específico pelo ID
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateData: any) {
-    return this.featureService.update(id, updateData);
-  }
-
-  // Método PATCH para atualizar parcialmente um usuario pelo ID
-  @Patch(':id')
-  partialUpdate(@Param('id') id: string, @Body() partialUpdateData: any) {
-    return this.featureService.update(id, partialUpdateData);
-  }
-
-  // Método DELETE para remover um usuario específico pelo ID
-  @Delete(':id')
-  @HttpCode(204)
-  remove(@Param('id') id: string) {
-    return this.featureService.remove(id);
-  }
+    @Patch(':id')
+    update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+        return this.userService.updateUser(+id, updateUserDto);
+    }
 }

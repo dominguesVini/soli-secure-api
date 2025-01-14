@@ -1,38 +1,29 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+// src/users/user.service.ts
+import { Injectable } from '@nestjs/common';
+import { User } from './users.entity';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
-export class UsersService {
-  private usuarios = []; // Armazena a lista de usuarios em memória
+export class UserService {
+  private users: User[] = []; // Substitua isso por uma chamada ao banco de dados
 
-  // Método para criar um novo usuario
-  create(usuario) {
-    this.usuarios.push(usuario);
-    return usuario;
+  createUser(createUserDto: CreateUserDto): User {
+    const newUser: User = {
+      id: Date.now(),
+      ...createUserDto,
+      createdAt: new Date(),
+      updatedAt: null,
+    };
+    this.users.push(newUser);
+    return newUser;
   }
 
-  // Método para listar todos os usuarios
-  findAll() {
-    return this.usuarios;
+  updateUser(id: number, updateUserDto: UpdateUserDto): User {
+    const userIndex = this.users.findIndex(user => user.id === id);
+    this.users[userIndex] = { ...this.users[userIndex], ...updateUserDto };
+    return this.users[userIndex];
   }
 
-  // Método para encontrar um usuario específico pelo ID
-  findOne(id: string) {
-    const usuario = this.usuarios.find(usuario => usuario.id === id);
-    if (!usuario) throw new NotFoundException('Usuário não encontrado');
-    return usuario;
-  }
-
-  // Método para atualizar um usuario específico pelo ID
-  update(id: string, updateData) {
-    const usuario = this.findOne(id);
-    Object.assign(usuario, updateData);
-    return usuario;
-  }
-
-  // Método para remover um usuario específico pelo ID
-  remove(id: string) {
-    const index = this.usuarios.findIndex(usuario => usuario.id === id);
-    if (index === -1) throw new NotFoundException('usuário não encontrado');
-    this.usuarios.splice(index, 1);
-  }
+  // Adicione outros métodos como findUser, deleteUser, etc.
 }
