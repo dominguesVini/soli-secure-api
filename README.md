@@ -80,7 +80,7 @@ A documentação dos endpoints gerada pelo Swagger pode ser acessada em: [https:
 
 ### RA1 - Projetar e desenvolver uma API funcional utilizando o framework NestJS
 
-- [ ] **ID1**: Configurado ambiente de desenvolvimento e criação da API usando NestJS.
+- [X] **ID1**: Configurado ambiente de desenvolvimento e criação da API usando NestJS.
 - [ ] **ID2**: Organização da lógica de negócios separando responsabilidades em services e controllers.
 - [ ] **ID3**: Utilização de providers e injeção de dependência.
 - [ ] **ID4**: Manipulação de rotas HTTP e tratamento de requisições.
