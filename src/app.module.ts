@@ -1,21 +1,23 @@
 // src/app.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './users/users.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     imports: [
+        AuthModule,
         TypeOrmModule.forRoot({
-            type: 'postgres', // ou 'mysql', 'sqlite', etc.
-            host: 'localhost',
-            port: 5432, // ou a porta do seu banco de dados
-            username: 'seu_usuario',
-            password: 'sua_senha',
-            database: 'seu_banco',
-            entities: [__dirname + '/**/*.entity{.ts,.js}'], // Para encontrar todas as entidades
-            synchronize: true, // Somente para desenvolvimento
-        }),
-        UserModule,
+            type: 'mariadb', // Define que o banco de dados é MariaDB
+            host: 'localhost', // Host do MariaDB
+            port: 3306, // Porta padrão do MariaDB
+            username: 'root', // Substitua pelo seu usuário do MariaDB
+            password: 'root123', // Substitua pela sua senha do MariaDB
+            database: 'soli_secure', // Substitua pelo nome do banco de dados
+            entities: [__dirname + '/**/*.entity.{js,ts}'], // Caminho para suas entidades
+            synchronize: true, // Sincroniza automaticamente as entidades com o banco
+          }),
+        UsersModule
     ],
 })
 export class AppModule {}

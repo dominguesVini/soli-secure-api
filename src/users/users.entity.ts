@@ -1,22 +1,22 @@
-// src/users/user.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity('users') // Nome da tabela no banco de dados
+@Entity('users')
 export class User {
-    @PrimaryGeneratedColumn() // Campo auto-incremento como ID
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ type: 'varchar', length: 100 }) // Nome do usuário
-    nome: string;
+  @Column({ length: 100 })
+  nome: string;
 
-    @Column({ type: 'varchar', unique: true }) // Email do usuário
-    email: string;
+  @Column({ unique: true })
+  email: string;
 
-    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }) // Data de criação
-    createdAt: Date;
+  @Column()
+  password: string;
 
-    @Column({ type: 'timestamp', nullable: true }) // Data de atualização
-    updatedAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    // Você pode adicionar outros campos conforme necessário
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
