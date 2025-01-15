@@ -91,9 +91,9 @@ A documentação dos endpoints gerada pelo Swagger pode ser acessada em: [https:
 ### RA2 - Implementar persistência de dados com um banco de dados relacional utilizando Prisma ou TypeORM
 
 - [ ] **ID8**: Modelagem das entidades e relações no ERD.
-- [ ] **ID9**: Configuração do Prisma e conexão ao banco de dados.
+- [X] **ID9**: Configuração do Prisma e conexão ao banco de dados.
 - [ ] **ID10**: Criação e aplicação de migrações de banco de dados.
-- [ ] **ID11**: Implementação das operações CRUD para as entidades.
+- [X] **ID11**: Implementação das operações CRUD para as entidades.
 
 ### RA3 - Realizar testes automatizados para garantir a qualidade da API
 
