@@ -8,6 +8,6 @@ async function bootstrap() {
     dotenv.config();
     const app = await NestFactory.create(AppModule);
     app.useGlobalFilters(new HttpExceptionFilter());
-    await app.listen(3002);
+    await app.listen(443);
 }
 bootstrap();
