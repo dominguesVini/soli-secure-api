@@ -8,12 +8,12 @@ import { AuthModule } from './auth/auth.module';
     imports: [
         AuthModule,
         TypeOrmModule.forRoot({
-            type: 'mariadb', // Define que o banco de dados é MariaDB
-            host: 'localhost', // Host do MariaDB
+            type: 'mysql', // Define que o banco de dados é MariaDB
+            host: 'b7ix4vgx2jjomlroalth-mysql.services.clever-cloud.com', // Host do MariaDB
             port: 3306, // Porta padrão do MariaDB
-            username: 'root', // Substitua pelo seu usuário do MariaDB
-            password: 'root123', // Substitua pela sua senha do MariaDB
-            database: 'soli_secure', // Substitua pelo nome do banco de dados
+            username: 'u3qoix4oyngyazs6', // Substitua pelo seu usuário do MariaDB
+            password: 'GCYSeMpxZGoPciils2Us', // Substitua pela sua senha do MariaDB
+            database: 'b7ix4vgx2jjomlroalth', // Substitua pelo nome do banco de dados
             entities: [__dirname + '/**/*.entity.{js,ts}'], // Caminho para suas entidades
             synchronize: true, // Sincroniza automaticamente as entidades com o banco
           }),
